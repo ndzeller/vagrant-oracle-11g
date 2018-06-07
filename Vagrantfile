@@ -25,6 +25,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :inline => "sudo yum install puppet -y"
 
   config.vbguest.auto_update = false
+  config.vbguest.no_remote = true
+  config.vbguest.iso_path = "./VBoxGuestAdditions_5.2.0_RC1.iso"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
